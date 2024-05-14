@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Sendbird Sample</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script>
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('botid')) {
+                var botID = urlParams.get('botid');
+                var appID = urlParams.get('appid') ?? '92E0AD65-2134-4C01-AAE7-28C30D768C6B'
+
+                $(document).ready(function(){
+                    !function(w, d, s, ...args){
+                        var div = d.createElement('div');
+                        div.id = 'aichatbot';
+                        d.body.appendChild(div);
+                        w.chatbotConfig = args;
+                        
+                        var f = d.getElementsByTagName(s)[0],
+                        j = d.createElement(s);
+                        j.defer = true;
+                        j.type = 'module';
+                        j.src = 'https://aichatbot.sendbird.com/index.js';
+                        f.parentNode.insertBefore(j, f);
+                    }(window, document, 'script', appID, botID);
+                });
+            }
+        </script>
+    </head>
+</html>
