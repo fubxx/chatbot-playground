@@ -4,7 +4,6 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script>
             var urlParams = new URLSearchParams(window.location.search);
-            $("#demoFrame").hide();
             if (urlParams.has('botid')) {
                 var botID = urlParams.get('botid');
                 var appID = urlParams.get('appid') ?? '92E0AD65-2134-4C01-AAE7-28C30D768C6B'
