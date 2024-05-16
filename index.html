@@ -5,10 +5,13 @@
         <script>
             var urlParams = new URLSearchParams(window.location.search);
             if (urlParams.has('botid')) {
+                var url = decodeURIComponent(urlParams.get('url'));
                 var botID = urlParams.get('botid');
                 var appID = urlParams.get('appid') ?? '92E0AD65-2134-4C01-AAE7-28C30D768C6B'
 
                 $(document).ready(function(){
+                    $('#demoFrame').attr('src', url)
+
                     !function(w, d, s, ...args){
                         var div = d.createElement('div');
                         div.id = 'aichatbot';
@@ -26,4 +29,7 @@
             }
         </script>
     </head>
+    <body style="margin:0px;padding:0px;overflow:hidden">
+        <iframe id="demoFrame" frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%"></iframe>
+    </body>
 </html>
