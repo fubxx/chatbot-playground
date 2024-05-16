@@ -4,14 +4,17 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script>
             var urlParams = new URLSearchParams(window.location.search);
+            $("#demoFrame").hide();
             if (urlParams.has('botid')) {
-                var url = decodeURIComponent(urlParams.get('url'));
                 var botID = urlParams.get('botid');
                 var appID = urlParams.get('appid') ?? '92E0AD65-2134-4C01-AAE7-28C30D768C6B'
 
                 $(document).ready(function(){
-                    $('#demoFrame').attr('src', url)
-
+                    if (urlParams.has('url')) {
+                        var url = decodeURIComponent(urlParams.get('url'));
+                        $('#demoFrame').attr('src', url)
+                    }
+                    
                     !function(w, d, s, ...args){
                         var div = d.createElement('div');
                         div.id = 'aichatbot';
