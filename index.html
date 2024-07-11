@@ -1,37 +1,104 @@
-<html>
-    <head>
-        <title>Sendbird Sample</title>
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-        <script>
-            var urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('botid')) {
-                var botID = urlParams.get('botid');
-                var appID = urlParams.get('appid') ?? '92E0AD65-2134-4C01-AAE7-28C30D768C6B'
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/chatbot-playground/assets/ic-sendbird-colored-1YsLjAY0.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Sendbird AI ChatBot</title>
+    <link rel="preload" href="https://fonts.cdnfonts.com/css/gellix" as="style" />
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/gellix" />
+    <link rel="preload" href="https://fonts.cdnfonts.com/css/sf-pro-display" as="style" />
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display" />
+    <!-- Prism CSS and JavaScript -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-jsx.min.js"></script>
+    <!-- Prism 'Copy to Clipboard' plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
 
-                $(document).ready(function(){
-                    if (urlParams.has('url')) {
-                        var url = decodeURIComponent(urlParams.get('url'));
-                        $('#demoFrame').attr('src', url)
-                    }
-                    
-                    !function(w, d, s, ...args){
-                        var div = d.createElement('div');
-                        div.id = 'aichatbot';
-                        d.body.appendChild(div);
-                        w.chatbotConfig = args;
-                        
-                        var f = d.getElementsByTagName(s)[0],
-                        j = d.createElement(s);
-                        j.defer = true;
-                        j.type = 'module';
-                        j.src = 'https://aichatbot.sendbird.com/index.js';
-                        f.parentNode.insertBefore(j, f);
-                    }(window, document, 'script', appID, botID);
-                });
-            }
-        </script>
-    </head>
-    <body style="margin:0px;padding:0px;overflow:hidden">
-        <iframe id="demoFrame" frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%"></iframe>
-    </body>
+    <!-- Custom CSS -->
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      #aichatbot-widget-close-icon {
+        display: none;
+      }
+      body {
+        margin: 0;
+        font-family: Gellix, sans-serif;
+        background-color: #ffffff;
+      }
+
+      header {
+        padding-top: 40px;
+        padding-left: 80px;
+        padding-bottom: 41px;
+        background-color: #f7f7f7;
+        color: #0d0d0d;
+      }
+
+      h1 {
+        padding-top: 32px;
+        margin: 0;
+        font-size: 56px;
+        font-weight: 700;
+      }
+
+      main {
+        padding-left: 80px;
+        padding-right: 80px;
+        color: #333;
+      }
+
+      h2 {
+        font-size: 28px;
+        color: #000000;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      p {
+        font-size: 1.2em;
+        line-height: 1.6;
+      }
+
+      pre {
+        background-color: #f0f0f0;
+        border-radius: 10px;
+      }
+
+      code {
+        font-size: 1.1em;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        color: #333;
+      }
+
+      a {
+        color: #5c00c7;
+      }
+
+      div.code-toolbar > .toolbar > .toolbar-item > button {
+        font-size: 1.1em;
+      }
+    </style>
+    <script type="module" crossorigin src="/chatbot-playground/assets/index-CGIprYf_.js"></script>
+    <link rel="stylesheet" crossorigin href="/chatbot-playground/assets/index-DCN5Rq13.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <footer></footer>
+  </body>
 </html>
